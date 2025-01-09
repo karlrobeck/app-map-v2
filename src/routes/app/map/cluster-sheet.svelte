@@ -12,7 +12,7 @@
   import type { GeoJson, GeoJsonCoordinates } from "../../../app";
   import { showDirections } from "./helper";
   import { convertStringToCode } from "@/utils";
-  import { _pb } from "../../+layout";
+  import { pb } from "@/utils";
   import type {
     ClusterRecord,
     DeceasedRecord,
@@ -53,8 +53,7 @@
     if (clusterData?.nameProperty !== undefined) {
       // fetch record list
       const formattedCluster = convertStringToCode(clusterData.nameProperty);
-      _pb
-        .collection("deceased")
+      pb.collection("deceased")
         .getFullList<
           DeceasedResponse<{
             cluster: ClusterRecord;

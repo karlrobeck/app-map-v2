@@ -27,7 +27,7 @@
     EmployeesRecord,
     FuneralServiceRecord,
   } from "@/pocketbase";
-  import { _pb } from "../../+layout";
+  import { pb } from "@/utils";
 
   let coordsArray: GeoJsonCoordinates[] | undefined = $state();
   let roadData: GeoJson | undefined = $state();
@@ -137,8 +137,7 @@
 
   $effect(() => {
     if (topResult) {
-      _pb
-        .collection("deceased")
+      pb.collection("deceased")
         .getList<
           DeceasedResponse<{
             cluster: ClusterRecord;

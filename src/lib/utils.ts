@@ -3,6 +3,8 @@ import { twMerge } from "tailwind-merge";
 import { cubicOut } from "svelte/easing";
 import type { TransitionConfig } from "svelte/transition";
 import type { GeoJsonCoordinates } from "../app";
+import type { TypedPocketBase } from "./pocketbase";
+import PocketBase from "pocketbase";
 
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
@@ -99,7 +101,8 @@ export function convertStringToCode(input: string) {
 		}
 	}
 
-
 	// Join the result with a hyphen
 	return result.join('-');
 }
+
+export const pb = new PocketBase(import.meta.env.DEV ? 'http://localhost:8090' : '/') as TypedPocketBase;
