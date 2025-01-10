@@ -8,7 +8,7 @@ RUN bun install
 
 RUN bun run build
 
-FROM golang AS go-builder
+FROM golang:alpine3.20 AS go-builder
 
 WORKDIR /app
 
