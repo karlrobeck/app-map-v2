@@ -1,16 +1,16 @@
 services:
   app:
-    build: .
+    image: registry.marahuyo.dev/tomb-tracer:latest
     restart: unless-stopped
     volumes:
       - db-data:/root
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.pocketbase.rule=Host(`tomb-tracer.f-org-e.systems`)"
-      - "traefik.http.routers.pocketbase.entrypoints=web-secured"
-      - "traefik.http.routers.pocketbase.tls=true"
-      - "traefik.http.routers.pocketbase.tls.certresolver=cloudflare"
-      - "traefik.http.services.pocketbase.loadbalancer.server.port=8090"
+      - "traefik.http.routers.tomb-tracer.rule=Host(`tomb-tracer.f-org-e.systems`)"
+      - "traefik.http.routers.tomb-tracer.entrypoints=web-secured"
+      - "traefik.http.routers.tomb-tracer.tls=true"
+      - "traefik.http.routers.tomb-tracer.tls.certresolver=cloudflare"
+      - "traefik.http.services.tomb-tracer.loadbalancer.server.port=8090"
     healthcheck:
       test: wget --no-verbose --tries=1 --spider http://localhost:8090/api/health || exit 1
       interval: 5s
