@@ -6,11 +6,11 @@ services:
       - db-data:/root
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.tomb-tracer.rule=Host(`tomb-tracer.f-org-e.systems`)"
-      - "traefik.http.routers.tomb-tracer.entrypoints=web-secured"
-      - "traefik.http.routers.tomb-tracer.tls=true"
-      - "traefik.http.routers.tomb-tracer.tls.certresolver=cloudflare"
-      - "traefik.http.services.tomb-tracer.loadbalancer.server.port=8090"
+      - "traefik.http.routers.tomb_tracer.rule=Host(`tomb-tracer.f-org-e.systems`)"
+      - "traefik.http.routers.tomb_tracer.entrypoints=web-secured"
+      - "traefik.http.routers.tomb_tracer.tls=true"
+      - "traefik.http.routers.tomb_tracer.tls.certresolver=cloudflare"
+      - "traefik.http.services.tomb_tracer.loadbalancer.server.port=8090"
     healthcheck:
       test: wget --no-verbose --tries=1 --spider http://localhost:8090/api/health || exit 1
       interval: 5s
