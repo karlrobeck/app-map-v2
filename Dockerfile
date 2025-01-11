@@ -25,7 +25,7 @@ RUN apk --no-cache add ca-certificates
 WORKDIR /root/
 
 COPY --from=go-builder /app .
-COPY --from=bun-builder /app/pb_data/pb_public /root/pb_data/pb_public
+COPY --from=bun-builder /app/pb_public /root/pb_public
 
 CMD [ "./app","serve","--http=0.0.0.0:8090" ]
 

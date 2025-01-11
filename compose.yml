@@ -1,6 +1,6 @@
 services:
   app:
-    image: registry.marahuyo.dev/tomb-tracer:2.1
+    image: registry.marahuyo.dev/tomb-tracer:2.1.1
     restart: unless-stopped
     volumes:
       - db-data:/root
