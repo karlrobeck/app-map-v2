@@ -14,7 +14,7 @@ func main() {
 	app := pocketbase.New()
 
 	app.OnServe().BindFunc(func(se *core.ServeEvent) error {
-		se.Router.GET("/{path...}", apis.Static(os.DirFS("./pb_public"), true))
+		se.Router.GET("/{path...}", apis.Static(os.DirFS("./dist"), true))
 		return se.Next()
 	})
 
